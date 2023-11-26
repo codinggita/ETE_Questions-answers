@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> clock </title>
+    <link rel = "stylesheet" href = "clock.css">
+    <style>
+        body{
+    margin :0%;
+    padding: 0%;
+}
+table {
+    font-family: sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+  }
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 50px;
+}
+.btn{
+    padding: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-left: 40%;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <table>
+        <tr>
+            <th>Hours</th>
+            <th>Minutes</th>
+            <th>Seconds</th>
+        </tr>
+        <tr>
+            <td id = "hours">00</td>
+            <td id = "minutes">00</td>
+            <td id = "seconds">00</td>
+        </tr>
+    </table>
+
+      <button class = "btn" onclick = "displayTime()">Start</button>
+    </div>
+    
+    <script>
+        function displayTime(){
+    var hrs = document.getElementById("hours");
+    var min = document.getElementById("minutes");
+    var sec = document.getElementById("seconds");
+
+    let dateTime = new Date();
+    hrs.innerHTML = dateTime.getHours();
+    min.innerHTML = dateTime.getMinutes();
+    sec.innerHTML = dateTime.getSeconds();
+}
+
+    </script>
+</body>
+</html>
