@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Content Example</title>
+    <style>
+        .details {
+            display: none;
+            margin-top: 20px;
+        }
+
+        button {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<button onclick="showDetails('department')">Department</button>
+<button onclick="showDetails('employee')">Employee</button>
+<div id="departmentDetails" class="details">
+    <h2>Department Details</h2>
+    <p>This is the department information.</p>
+    <ul>
+        <li>Department 1</li>
+        <li>Department 2</li>
+        <li>Department 3</li>
+    </ul>
+</div>
+
+<div id="employeeDetails" class="details">
+    <h2>Employee Details</h2>
+    <p>This is the employee information.</p>
+    <ul>
+        <li>Employee 1</li>
+        <li>Employee 2</li>
+        <li>Employee 3</li>
+    </ul>
+</div>
+
+<script>
+    function showDetails(type) {
+        const departmentDetails = document.getElementById('departmentDetails');
+        const employeeDetails = document.getElementById('employeeDetails');
+
+        if (type === 'department') {
+            departmentDetails.style.display = 'block';
+            employeeDetails.style.display = 'none';
+        } else if (type === 'employee') {
+            departmentDetails.style.display = 'none';
+            employeeDetails.style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>
