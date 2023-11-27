@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Buttons</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #happy {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #sad {
+            background-color: #008CBA;
+            color: white;
+        }
+
+        #angry {
+            background-color: #FF6347;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <button id="happy" onclick="selectEmotion('happy')">Happy</button>
+    <button id="sad" onclick="selectEmotion('sad')">Sad</button>
+    <button id="angry" onclick="selectEmotion('angry')">Angry</button>
+
+    <script>
+        function selectEmotion(emotion) {
+            resetButtons();
+
+            switch (emotion) {
+                case 'happy':
+                    document.body.style.backgroundColor = "#7FFF00"; 
+                    break;
+
+                case 'sad':
+                    showRandomJoke();
+                    break;
+
+                case 'angry':
+                    startCountdown();
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        function resetButtons() {
+            document.getElementById('happy').style.backgroundColor = '#4CAF50';
+            document.getElementById('sad').style.backgroundColor = '#008CBA';
+            document.getElementById('angry').style.backgroundColor = '#FF6347';
+        }
+
+        function showRandomJoke() {
+          
+            const jokes = [
+                'Why don\'t scientists trust atoms? Because they make up everything!',
+                'Did you hear about the mathematician who’s afraid of negative numbers? He’ll stop at nothing to avoid them.',
+                'Parallel lines have so much in common. It’s a shame they’ll never meet.',
+               
+            ];
+
+            const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+            alert(randomJoke);
+        }
+
+        function startCountdown() {
+            let time = 10; 
+
+            const countdownInterval = setInterval(() => {
+                document.body.innerHTML = `<h1>Countdown: ${time}s</h1>`;
+
+                time--;
+
+                if (time < 0) {
+                    clearInterval(countdownInterval);
+                    document.body.innerHTML = '<h1>Time\'s up!</h1>';
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
