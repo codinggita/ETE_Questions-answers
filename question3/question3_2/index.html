@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Current Date and Time</title>
+</head>
+<style>
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 95vh;
+    }
+</style>
+<body>
+  <h1 id="datetime"></h1>
+  <script>
+    function updateTime() {
+        const dateTime = new Date();
+        const dateTimeString = dateTime.toLocaleString();
+        document.getElementById('datetime').innerHTML = dateTimeString;
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+  </script>
+</body>
+</html>
