@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      .btn {
+        background-color: blue;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin: 10px;
+      }
+
+      .blink {
+        color: red;
+      }
+      div {
+        min-height: 400px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <button class="btn">Hover me</button>
+    </div>
+    <div style="display: flex; flex-direction: column">
+      <h1>Game Page</h1>
+      <div style="display: flex; min-height: 100px">
+        <button id="startBtn">Start</button>
+        <button id="stopBtn">Stop</button>
+      </div>
+      <p id="countdown"></p>
+    </div>
+    <div>
+      <h1 id="blinkingText">Blinking Text</h1>
+    </div>
+
+    <!-- question 6b -->
+    <script>
+      let blink = true;
+      const blinkInterval = setInterval(function () {
+        $("#blinkingText").toggleClass("blink");
+      }, 200);
+    </script>
+
+    <!-- question 6a -->
+
+    <script>
+      let countdownValue;
+      let countdownInterval;
+
+      const startButton = document.getElementById("startBtn");
+      const stopButton = document.getElementById("stopBtn");
+      const countdownDisplay = document.getElementById("countdown");
+
+      startButton.addEventListener("click", startCountdown);
+      stopButton.addEventListener("click", stopCountdown);
+
+      function startCountdown() {
+        countdownValue = 9;
+        countdownDisplay.innerText = countdownValue;
+        startButton.disabled = true;
+        stopButton.disabled = false;
+        countdownInterval = setInterval(updateCountdown, 1000);
+      }
+
+      function stopCountdown() {
+        const confirmStop = confirm(
+          "Are you sure you want to stop the countdown?"
+        );
+        if (confirmStop) {
+          clearInterval(countdownInterval);
+          startButton.disabled = false;
+          stopButton.disabled = true;
+        }
+      }
+
+      function updateCountdown() {
+        countdownValue--;
+        countdownDisplay.innerText = countdownValue;
+        if (countdownValue === 0) {
+          clearInterval(countdownInterval);
+          alert("Entering into the game");
+          startButton.disabled = false;
+          stopButton.disabled = true;
+        }
+      }
+    </script>
+
+    <!-- question 5b -->
+
+    <script>
+      const jsonString = '{"dateString": "2022-09-15"}';
+
+      const jsonObject = JSON.parse(jsonString);
+      const dateString = jsonObject.dateString;
+
+      const dateObject = new Date(dateString);
+
+      console.log(dateObject);
+    </script>
+
+    <!-- question 5a -->
+
+    <script>
+      const button = document.querySelector(".btn");
+
+      button.addEventListener("mouseover", function () {
+        this.style.backgroundColor = "red";
+      });
+
+      button.addEventListener("mouseout", function () {
+        this.style.backgroundColor = "blue";
+      });
+    </script>
+  </body>
+</html>
