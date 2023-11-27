@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 95vh;
+        }
+        form{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 300px;
+            height: 250px;
+            border: 2px dashed orange;
+            font-size: 1.4rem;
+        }
+        input{
+            margin-bottom: 30px;
+        }
+    
+    </style>
+</head>
+<body>
+    <form>
+        <label for="password">Password</label>
+        <input type="password" id="password" required>
+      
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" required>
+      
+        <input type="submit" style="width: 80px;
+         height: 40px; font-size: 1.2rem; background-color: orange;"  value="Submit">
+      </form>
+      <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password === confirmPassword) {
+                alert('Password changed');
+            } else {
+                alert('Please make sure that Password and Confirm Password are the same.');
+            }
+        });
+
+      </script>      
+</body>
+</html>
