@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <title>Image Click Coordinates</title>
+  <style>
+    img{
+      width: 40%;
+      height: auto;
+    }
+    #content{
+      background-color: aquamarine;
+      width: 40%;
+      height: 90px;
+      text-align: center;
+
+    }
+  </style>
+</head>
+<body>
+  <div id="image-container">
+    <img id="my-image" src="1.jpg" alt="Image" loading="lazy">
+  </div>
+  <div id="content">Mouseover-output</div>
+<script>
+let output=document.getElementById("image-container");
+let o=document.getElementById("content");
+window.addEventListener("mousemove",(e)=>{
+  let x=e.clientX;
+  let y=e.clientY;
+  console.log(x,y);
+   o.innerHTML=`<div><span>X:</span>${x}px</div><div><span>Y:${y}px</span></div>`;
+});
+</script>
+</body>
+</html>
