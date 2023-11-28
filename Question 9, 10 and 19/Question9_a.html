@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Gallery</title>
+  </head>
+  <body style="background-color: black;">
+    <h1 style="text-align: center; color: white;">Create an image galery using Javascript</h1>
+    <div id="imggallery"></div>
+    <script>
+      let imgarr = new Array(
+        "1.jpg",
+        "2.jpg",
+        "3.jpg",
+        "4.jpg",
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png",
+        "1.webp",
+        "2.webp"
+      );
+      let element = document.getElementById("imggallery");
+      for (var i = 0; i < imgarr.length; i++) {
+        let elem = document.createElement("img");
+        elem.setAttribute("src", `images/${imgarr[i]}`);
+        elem.setAttribute("height", "300");
+        elem.setAttribute("width", "504");
+        elem.style.marginRight = "20px"
+        elem.style.marginBottom = "20px"
+        element.appendChild(elem);
+        if(i%2 == 1) {
+          element.appendChild(
+            document.createElement('br')
+          );
+        }
+      }
+    </script>
+  </body>
+</html>
