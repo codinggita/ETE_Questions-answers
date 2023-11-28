@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <title>Image Click Coordinates</title>
+  <style>
+    img{
+      width: 40%;
+      height: auto;
+    }
+    .content{
+      background-color: black;
+      max-width: 50%;
+    }
+  </style>
+
+</head>
+<body>
+  <div id="image-container">
+    <img id="my-image" src="1.jpg" alt="Image" loading="lazy">
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const imageElement = document.getElementById("my-image");
+  
+    imageElement.addEventListener("mouseover", function() {
+      imageElement.src = "3.jpg";
+    });
+  
+    imageElement.addEventListener("mouseout", function() {
+      imageElement.src = "2.png";
+    });
+  });
+ 
+  </script>
+</body>
+</html>
